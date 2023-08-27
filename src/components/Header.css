@@ -1,0 +1,24 @@
+header {
+    background-color: rgb(163, 61, 2);
+    display: flex;
+    padding: 1rem 5rem;
+    justify-content: space-between;
+}
+.cart {
+    background-color: rgb(95, 28, 1);
+    padding: 0.5rem 3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+}
+.cart span {
+    background-color: orangered;
+    display: inline-block;
+    margin-left: 10px;
+    width: 35px;
+    border-radius: 10px;
+    text-align: center;
+}
