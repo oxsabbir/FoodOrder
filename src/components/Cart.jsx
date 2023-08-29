@@ -6,12 +6,15 @@ const Cart = function (props) {
     const contextData = useContext(StoreContext)
     const itemsList = contextData.items
     const itemIsEmpty = itemsList.length === 0
-   
+
+    let price = 0
+    itemsList.forEach(item=> {
+        price+= item.price
+    })
 
     const modalHandler = function () {
         props.hideModal()
     }
-
     return (
         <>
             <div className="cartModal">
@@ -21,16 +24,17 @@ const Cart = function (props) {
                         {itemIsEmpty && <h1>Cart Is Empty...</h1>}
                         {itemsList?.map(item => {
                             return <li key={item.id}>
-                                <CartList 
+                                <CartList
                                     name={item.name}
                                     price={item.price}
                                     amount={item.amount}
+                                    ids={item.id}
                                 />
                             </li>
                         })}
                     </ul>
                     {!itemIsEmpty && <div className="totalPrice">
-                        <h2>Total : <span>$350.64</span></h2>
+                        <h2>Total : <span>${price.toFixed(2)}</span></h2>
                         <div className="orderMenu">
                             <button onClick={modalHandler} >Cancel</button>
                             <button>Order</button>

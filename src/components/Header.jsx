@@ -4,7 +4,7 @@ import './Header.css'
 import Cart from './Cart'
 
 const Header = function () {
-    const {items} = useContext(StoreContext)
+    const {totalAmount} = useContext(StoreContext)
     const [cartIsShown, setCartIsShown] = useState(false)
     const hideModal = function () {
         setCartIsShown(false)
@@ -14,7 +14,7 @@ const Header = function () {
             <header>
                 <h1>React Meals</h1>
                 <div onClick={()=> setCartIsShown(true)} className="cart">
-                    <h3>Your Cart <span>{items.length}</span></h3>
+                    <h3>Your Cart <span>{totalAmount}</span></h3>
                 </div>
             </header>
             {cartIsShown && <Cart hideModal={hideModal} />}
