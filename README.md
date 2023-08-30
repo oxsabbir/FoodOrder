@@ -1,8 +1,17 @@
-# React + Vite
+#Food Order App
+This a simple Dummy Food-Order App. This is one is practice project.
+In this we can Add our Food Item to the Cart and from there we can order our food.
+At this momment the order functionality does not work cause i didn't built it yet.
+It will be included in the future version of this application.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Some Basic Feature
+1. We can add our food to the Cart by giving a serving number.
+2. We can increase and decrease that serving number from that Cart.
+3. The Cart Menu show us the total price of our food.
 
-Currently, two official plugins are available:
+#Upcoming Feature
+1. There will be unique landing page for running our promotional campaing.
+2. There will be an Admin user who can operate the whole application. by operate i mean add new food item. increase decrease there price.
+3. There will be User Authentication feature soon
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+And This is for Now.
