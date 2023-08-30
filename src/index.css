@@ -28,7 +28,9 @@
   .cart {
     padding: 10px;
     border-radius: 20px;
+    text-align: center;
   }
+  
   .menuSection {
     padding: 20px 5px;
     width: 95%;

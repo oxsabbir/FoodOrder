@@ -29,7 +29,9 @@
     border: 0;
     border-radius: 10px;
 }
-
+.menu-add {
+    text-align: right;
+}
 .menu-details h3{
     color: rgb(95, 28, 1);
 }
