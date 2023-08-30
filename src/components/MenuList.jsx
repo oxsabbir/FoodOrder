@@ -15,8 +15,10 @@ const MenuList = function (props) {
         const id = +event.target.id
         const amount = amountInput.current.value
         const selectedItem = data.find(item=> item.id === id)
-        
         addItem(selectedItem,amount)
+
+        // clearing Input 
+        amountInput.current.value = 1
     }
 
     return (
@@ -30,7 +32,7 @@ const MenuList = function (props) {
                         </div>
                         <div className="menu-add">
                             <label htmlFor="count">Amount</label>
-                            <input ref={amountInput} type="number" min={1} max={5} defaultValue={1} /> <br />
+                            <input ref={amountInput} type="number" min={1} max={20} defaultValue={1} /> <br />
                             <button id={props.keys} onClick={addToCartHandler} >+Add</button>
                         </div>
                     </div>

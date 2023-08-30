@@ -1,12 +1,58 @@
-*{
+* {
   margin: 0;
-  padding : 0;
+  padding: 0;
 }
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
+}
+
+@media screen and (max-width : 600px) {
+  body {
+    background-color: red;
+  }
+
+  header {
+    padding: 10px;
+    align-items: center;
+  }
+  header h1 {
+    font-size: 28px;
+  }
+
+  .cart {
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .menuSection {
+    padding: 20px 5px;
+    width: 95%;
+  }
+  .hero {
+    height: 100%;
+  }
+  .menu-add {
+    text-align: right;
+  }
+  .menu-add button {
+    width: 80%;
+  }
+  .modalContent {
+    width: 85%;
+    font-size: 90%;
+  }
+  .itemList {
+    padding: 5px 0;
+  }
+  .totalPrice {
+    width: 93%;
+  }
+  .orderMenu button{
+    padding: 6px 10px;
+  }
 }

@@ -5,7 +5,8 @@ const Menu = function () {
     const data = DUMMY_DATA()
 
     return (
-        <>
+        <>  
+        <section className='menuSection'>
             <div className="menu">
                 <ul style={{listStyle : 'none'}}>
                 {data.map(item =>
@@ -20,6 +21,8 @@ const Menu = function () {
                 )} 
            </ul>
             </div>
+        </section>
+
         </>
     )
 }

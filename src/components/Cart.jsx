@@ -8,8 +8,8 @@ const Cart = function (props) {
     const itemIsEmpty = itemsList.length === 0
 
     let price = 0
-    itemsList.forEach(item=> {
-        price+= item.price
+    itemsList.forEach(item => {
+        price += item.price
     })
 
     const modalHandler = function () {
@@ -21,7 +21,11 @@ const Cart = function (props) {
                 <div className="modalContent">
                     <button onClick={modalHandler} className='close-modal'>x</button>
                     <ul style={{ listStyle: 'none' }}>
-                        {itemIsEmpty && <h1>Cart Is Empty...</h1>}
+                        {itemIsEmpty && 
+                            <div className="emptyMsg">
+                                <h1>Cart Is Empty...</h1>
+                            </div>
+                        }
                         {itemsList?.map(item => {
                             return <li key={item.id}>
                                 <CartList

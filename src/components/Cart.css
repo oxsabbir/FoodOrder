@@ -104,7 +104,12 @@
     font-size: 15px;
     padding: 10px 15px;
     color: white;
-    border: 1px solid black;
+    border: 0;
     background-color: orangered;
     border-radius: 20px;
+}
+.emptyMsg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

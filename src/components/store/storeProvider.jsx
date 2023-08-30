@@ -10,15 +10,17 @@ const defaultCartState = {
 export const StoreReducer = function (state, action) {
 
     // refactoring here 
-    const amountMaintainer = function (actionId,presentState,actionType) {
+    const amountMaintainer = function (actionId,presentState,actionType,actionValue) {
 
         const index = presentState.items.findIndex(item => item.id === +actionId)
 
-        const copyState = JSON.parse(JSON.stringify(state))
+        const copyState = JSON.parse(JSON.stringify(presentState))
 
         const newItems = copyState.items[index]
+        console.log(newItems, 'adding')
 
         const basePrice = newItems.price / newItems.amount
+
         if(actionType === 'INCREASE') {
             newItems.amount++
             newItems.price += basePrice
@@ -26,6 +28,11 @@ export const StoreReducer = function (state, action) {
         if(actionType === "DECREASE") {
             newItems.amount--
             newItems.price -= basePrice
+        }
+
+        if(actionType === "ADD-BY-VALUE") {
+            newItems.amount += actionValue.amount
+            newItems.price += actionValue.price
         }
 
         const stateItem = copyState.items
@@ -41,7 +48,17 @@ export const StoreReducer = function (state, action) {
 
 
     if (action.type === "ADD") {
+        const isItemExist = Boolean(state.items.find(item=> item.name === action.value.name))
 
+        if(isItemExist) {
+            console.log(state)
+            const newItem = amountMaintainer(action.value.id, state,"ADD-BY-VALUE",action.value)
+            return {
+                ...state,
+                items : newItem,
+                totalAmount: state.totalAmount + action.value.amount
+            }
+        }
         return {
             ...state,
             totalAmount: state.totalAmount + action.value.amount,
@@ -65,7 +82,6 @@ export const StoreReducer = function (state, action) {
             ...state,
             items: newItem,
             totalAmount : state.totalAmount--
-
         }
     }
 
