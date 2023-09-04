@@ -9,6 +9,7 @@
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.33);
+    transition: all 5px;
 }
 .modalContent {
     background-color: white;

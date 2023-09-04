@@ -1,10 +1,10 @@
 import './Cart.css'
-import { useContext } from 'react'
-import { StoreContext } from './store/storeProvider'
 import CartList from './CartList'
+import { useSelector } from 'react-redux'
+
 const Cart = function (props) {
-    const contextData = useContext(StoreContext)
-    const itemsList = contextData.items
+    const itemsList = useSelector(state=> state.cart.items)
+    console.log(itemsList)
     const itemIsEmpty = itemsList.length === 0
 
     let price = 0

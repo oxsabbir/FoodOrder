@@ -1,11 +1,15 @@
-import { useContext } from "react"
-import { StoreContext } from "./store/storeProvider"
+import { useDispatch } from "react-redux"
+import { cartActions } from "../store/storeIndex"
+
+
 const CartList = function (props) {
-    const contextData = useContext(StoreContext)
-
-    const increase = contextData.increaseAmount
-    const decrease = contextData.decreaseAmount
-
+    const dispatch = useDispatch()
+    const increaseHandler = function() {
+        dispatch(cartActions.increament({id : props.ids}))
+    }
+    const decreaseHandler = function() {
+        dispatch(cartActions.decreament({id : props.ids}))
+    }
     return (
         <>
             <div className="itemList">
@@ -17,8 +21,8 @@ const CartList = function (props) {
                     </div>
                 </div>
                 <div className="add-remove">
-                    <button onClick={()=> decrease(props.ids)} className='addMore btn'>-</button>
-                    <button onClick={()=> increase(props.ids)} className='removeMore btn'>+</button>
+                    <button onClick={decreaseHandler} className='addMore btn'>-</button>
+                    <button onClick={increaseHandler} className='removeMore btn'>+</button>
                 </div>
             </div>
         </>

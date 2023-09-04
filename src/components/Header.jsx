@@ -1,10 +1,11 @@
-import { useContext, useState } from 'react'
-import { StoreContext } from './store/storeProvider'
 import './Header.css'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import Cart from './Cart'
 
 const Header = function () {
-    const {totalAmount} = useContext(StoreContext)
+    const totalAmount = useSelector(state=> state.cart.totalAmount)
+    
     const [cartIsShown, setCartIsShown] = useState(false)
     const hideModal = function () {
         setCartIsShown(false)

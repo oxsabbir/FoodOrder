@@ -1,21 +1,22 @@
 import './MenuList.css'
 import { useRef } from 'react'
-import { StoreContext } from './store/storeProvider'
 import DUMMY_DATA from '../assets/DUMMY_DATA'
-import { useContext } from 'react'
-
+import { cartActions } from '../store/storeIndex'
+import { useDispatch } from 'react-redux'
 
 const MenuList = function (props) {
+    const dispatch = useDispatch()
     const amountInput = useRef()
     const data = DUMMY_DATA()
 
-    const {addItem} = useContext(StoreContext)
-
     const addToCartHandler = function (event) {
         const id = +event.target.id
-        const amount = amountInput.current.value
+        const amount = +amountInput.current.value
         const selectedItem = data.find(item=> item.id === id)
-        addItem(selectedItem,amount)
+
+
+        // addItem(selectedItem,amount)
+        dispatch(cartActions.addToCart({selectedItem,amount,id}))
 
         // clearing Input 
         amountInput.current.value = 1
